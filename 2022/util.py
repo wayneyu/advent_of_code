@@ -1,4 +1,4 @@
 def read_input(file):
     with open(f'{file}', 'r') as f:
-        arr = [l.strip() for l in f.readlines()]
+        arr = [l.strip('\n') for l in f.readlines()]
     return arr
