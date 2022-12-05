@@ -18,7 +18,7 @@ def pivot(rows):
     columns = [[] for _ in range(0, ncol)]
     for row in rows[::-1]:
         for j in range(0, len(row)):
-            if row[j] != ' ':
+            if row[j]:
                 columns[j].append(row[j])
     return columns
 
@@ -32,9 +32,12 @@ for l in lines:
             if '[' in l:
                 # extract crate by using indexing into the row, only works if number of stacks is below 10
                 row = []
-                for i in range(1, 9*4, 4):
+                for i in range(1, len(l), 4):
                     if i < len(l):
-                        row.append(l[i])
+                        if l[i] != ' ':
+                            row.append(l[i])
+                        else:
+                            row.append(None)
                 rows.append(row)
         else:
             result = re.match(r"move (\d+) from (\d+) to (\d+)", l)
@@ -58,17 +61,17 @@ for move in moves:
     # print("after moving {ncrates} crates from {a} to {b}:")
     # print(stacks)
 
-print('part1:', ''.join([stack[-1] for stack in stacks]))
+print(''.join([stack[-1] for stack in stacks]))
 
 
 # part 2
 stacks = pivot(rows)
 for move in moves:
     ncrates, a, b = move
-    to_move = (stacks[a-1][-ncrates:])
+    to_move = stacks[a-1][-ncrates:]
     stacks[a-1] = stacks[a-1][:-ncrates]
     stacks[b-1] += to_move
     # print("after moving {ncrates} crates from {a} to {b}:")
     # print(stacks)
 
-print('part2:', ''.join([stack[-1] for stack in stacks]))
+print(''.join([stack[-1] for stack in stacks]))
