@@ -6,12 +6,12 @@ res1 = 0
 res2 = 0
 for l in lines:
     p1, p2 = l.split(',')
-    p1s, p1e = p1.split('-')
-    p2s, p2e = p2.split('-')
-    p1s, p1e, p2s, p2e = int(p1s), int(p1e), int(p2s), int(p2e)
+    a1, a2 = p1.split('-')
+    b1, b2 = p2.split('-')
+    a1, a2, b1, b2 = int(a1), int(a2), int(b1), int(b2)
 
-    res1 += bool(p1s <= p2s <= p2e <= p1e or p2s <= p1s <= p1e <= p2e)
-    res2 += bool(max(p1s, p2s) <= min(p1e, p2e))
+    res1 += a1 <= b1 <= b2 <= a2 or b1 <= a1 <= a2 <= b2
+    res2 += max(a1, b1) <= min(a2, b2)
 
 print(res1)
 print(res2)
