@@ -82,9 +82,9 @@ def shortest_path(map, max_energy, reversed=False):
 # part 1
 shortest_pathSE = shortest_path(map, 1)
 print(total_energy(map, shortest_pathSE))
-print_path(map, shortest_pathSE)
+# print_path(map, shortest_pathSE)
 
 # part 2
 shortest_pathES = shortest_path(map, 1, True)
 print(total_energy(map, shortest_pathES))
-print_path(map, shortest_pathES)
+# print_path(map, shortest_pathES)
