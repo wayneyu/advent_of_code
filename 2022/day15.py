@@ -83,8 +83,8 @@ for l in lines:
 
 
 # part 1
-y = 10 #R2000000
-# print(interval_length(xranges_without_beacons_for_y(sensors_beacons, y)))
+y = 2000000
+print(interval_length(xranges_without_beacons_for_y(sensors_beacons, y)))
 
 # part 2
 max_xy = 4000000
