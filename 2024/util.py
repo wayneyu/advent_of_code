@@ -5,5 +5,5 @@ def read_input(file):
 
 def print_matrix(matrix):
     for row in matrix:
-        print(''.join(row))
+        print(''.join([str(k) for k in row]))
     print('\n')
